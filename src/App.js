@@ -1,25 +1,24 @@
-import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import { Container } from 'react-bootstrap';
-import Navbar from './components/Navbar';
-import Hero from './components/Hero';
-import CourseCategories from './components/CourseCategories';
-import FeaturedCourses from './components/FeaturedCourses';
-import About from './components/About';
-import Footer from './components/Footer';
+import React from "react";
+import { Routes, Route } from "react-router-dom";
+
+import AppNavbar from "./components/AppNavbar";
+import Hero from "./components/Hero";
+import Home from "./pages/Home";
+import About from "./pages/About";
+import Courses from "./pages/Courses";
+import Contact from "./pages/Contact";
 
 function App() {
   return (
-    <Router>
-      <Navbar />
-      <Hero />
-      <Container>
-        <CourseCategories />
-        <FeaturedCourses />
-        <About />
-      </Container>
-      <Footer />
-    </Router>
+    <>
+      <AppNavbar />
+      <Routes>
+        <Route path="/" element={<><Hero /><Home /></>} />
+        <Route path="/about" element={<About />} />
+        <Route path="/courses" element={<Courses />} />
+        <Route path="/contact" element={<Contact />} />
+      </Routes>
+    </>
   );
 }
 
